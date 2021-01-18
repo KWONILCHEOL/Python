@@ -3,6 +3,7 @@
   링크 : https://www.acmicpc.net/problem/15681
   시간복잡도 : O(n^2)
 """
+
 import sys
 #재귀 최대 깊이 설정
 sys.setrecursionlimit(123456)
