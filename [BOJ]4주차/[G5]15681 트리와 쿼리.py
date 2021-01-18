@@ -1,7 +1,7 @@
 """
   백준 15681 트리와 쿼리
   링크 : https://www.acmicpc.net/problem/15681
-  시간복잡도 : O(n)
+  시간복잡도 : O(n^2)
 """
 import sys
 #재귀 최대 깊이 설정
