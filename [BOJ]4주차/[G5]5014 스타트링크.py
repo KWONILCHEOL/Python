@@ -1,6 +1,7 @@
 """
   백준 5014 스타트링크
   링크 : https://www.acmicpc.net/problem/5014
+  시간복잡도 : O(2^n)
 """
 import sys
 input = sys.stdin.readline
