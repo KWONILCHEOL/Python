@@ -4,7 +4,7 @@ def compress(s, tok):
   cur_word = words[0]
   cur_cnt = 1
   #words[1:] + ['']의 ['']는 리스트의 개수를 맞춰줌
-  for a,b in zip(words,words[1:] + ['']):
+  for a,b in zip(words,words[1:] + ['']):  
     if a == b:
       cur_cnt += 1
     else:
