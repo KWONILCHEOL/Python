@@ -12,7 +12,8 @@ input = sys.stdin.readline
 def getLength(arr, mid):
   return sum(x - mid for x in arr if x > mid)
 
-def binary_search(arr, target, start, end, answer):
+def binary_search(arr, target, start, end):
+  answer = 0
   while start <= end: #O(logN)
     mid = (start + end) // 2
     x = getLength(arr,mid)  #O(N)
@@ -31,4 +32,4 @@ rc = list(map(int,input().rstrip().split()))
 
 end = max(rc) #O(N)
 start = max(0, end - m)
-print(binary_search(rc,m,start,end, start))
+print(binary_search(rc,m,start,end))
