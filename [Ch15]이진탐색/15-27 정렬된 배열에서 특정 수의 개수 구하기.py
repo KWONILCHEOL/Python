@@ -1,5 +1,5 @@
 # [Ch15] 27 정렬된 배열에서 특정 수의 개수 구하기
-# 강의
+# https://youtu.be/94RC-DsGMLo?list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC&t=1351
 
 import sys
 input = sys.stdin.readline
@@ -8,7 +8,6 @@ from bisect import bisect_left, bisect_right
 
 def count_by_range(arr, left_value, right_value):
   right_index = bisect_right(arr, right_value)
-
   left_index = bisect_left(arr,left_value)
 
   return right_index - left_index
