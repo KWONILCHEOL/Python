@@ -1,6 +1,6 @@
-# [Ch15] 30 가사 검색
+# [kakao] 징검다리 건너기
 # https://programmers.co.kr/learn/courses/30/lessons/60060
-# 시간 복잡도 : O(nlogm) m = 2e8
+# 시간 복잡도 : O(nlogm),  m=2e8
 def solution(stones, k):
   answer = 0
   left, right = 0, int(2e8)
@@ -12,20 +12,17 @@ def solution(stones, k):
     for i in range(len(s)):
       s[i] -= mid
 
-    seq_minus, max_minus = 0, 0
+    cnt = 0
     for i in range(len(s)):
       if s[i] < 0:
-        seq_minus += 1
-        if max_minus < seq_minus:
-          max_minus = seq_minus
-          if max_minus >= k:
-            break
+        cnt += 1
+        if cnt == k:
+          break
       else:
-        seq_minus = 0
+        cnt = 0
 
-    if max_minus < k:
-      if answer < mid:
-        answer = mid
+    if cnt < k:
+      answer = max(answer,mid)
       left = mid + 1
     else:
       right = mid - 1
