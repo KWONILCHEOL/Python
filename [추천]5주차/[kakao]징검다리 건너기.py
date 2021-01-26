@@ -1,5 +1,5 @@
 # [kakao] 징검다리 건너기
-# https://programmers.co.kr/learn/courses/30/lessons/60060
+# https://programmers.co.kr/learn/courses/30/lessons/64062
 # 시간 복잡도 : O(nlogm),  m=2e8
 def solution(stones, k):
   answer = 0
