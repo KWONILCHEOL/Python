@@ -9,9 +9,10 @@ input = sys.stdin.readline
 
 n = int(input())
 arr = list(map(int,input().split()))
+arr= arr[::-1]
 dp = []
 
-for x in arr[::-1]:
+for x in arr:
   index = bisect_left(dp, x)
 
   if index < len(dp):
@@ -19,6 +20,13 @@ for x in arr[::-1]:
   else:
     dp.append(x)
 
+# dp = [1] * n
+# for i in range(1,n):
+#   for j in range(0,i):
+#     if arr[j] < arr[i]:
+#       dp[i] = max(dp[i], dp[j] + 1)
+# print(n - max(dp))
+
 print(n - len(dp))
 
-#dp[n]은 총 n개 선택했을 때 증가하는 최소 숫자
+#dp[n]은 총 n개 선택했을 때 감소하는 최대 숫자
