@@ -15,12 +15,8 @@ for _ in range(testCase):
   for j in range(1, m):
     for i in range(n):
       left = dp[i][j-1]
-      left_up = 0
-      left_down = 0
-      if i > 0:
-        left_up = dp[i-1][j-1]
-      if i < n - 1:
-        left_down = dp[i+1][j-1]
+      left_up = dp[i-1][j-1] if i > 0 else 0
+      left_down = dp[i+1][j-1] if i < (n - 1) else 0
       
       dp[i][j] += max(left, left_up, left_down)
       
