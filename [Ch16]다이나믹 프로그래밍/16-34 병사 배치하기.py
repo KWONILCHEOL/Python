@@ -20,6 +20,8 @@ for x in arr:
   else:
     dp.append(x)
 
+print(n - len(dp))
+
 # dp = [1] * n
 # for i in range(1,n):
 #   for j in range(0,i):
@@ -27,6 +29,6 @@ for x in arr:
 #       dp[i] = max(dp[i], dp[j] + 1)
 # print(n - max(dp))
 
-print(n - len(dp))
+
 
 #dp[n]은 총 n개 선택했을 때 감소하는 최대 숫자
