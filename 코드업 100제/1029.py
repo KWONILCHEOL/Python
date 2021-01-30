@@ -1,0 +1,1 @@
+print(format(float(input()),".11f"))
