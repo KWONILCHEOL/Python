@@ -1,4 +1,4 @@
-# [G5]1915 가장 큰 정삼각형
+# [G5]1915 가장 큰 정사각형
 # https://www.acmicpc.net/problem/1915
 
 import sys

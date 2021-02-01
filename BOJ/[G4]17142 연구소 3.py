@@ -6,6 +6,7 @@
     바이러스가 커버가능한 구간 찾기 - get_virus_section()
     초기 바이러스가 끝까지 퍼질 수 있는지 확인 - 빈간 구간 수 와 전체 바이러스 구간 비교
     바이러스들 조합 - list(combinations(virus, m))
+
 """
 
 import sys
