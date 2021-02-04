@@ -27,3 +27,11 @@ def dijkstra(start):
             if cost < distance[i[0]]:
                 distance[i[0]] = cost
                 heapq.heappush(q, (cost, i[0]))
+                
+dijkstra(start)
+
+for i in range(1,n+1):
+    if distance[i] == INF:
+        print("INFINITY")
+    else:
+        print(distance[i])
