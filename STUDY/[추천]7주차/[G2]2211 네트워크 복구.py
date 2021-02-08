@@ -1,5 +1,5 @@
-# [G2]9370 미확인 도착지
-# https://www.acmicpc.net/problem/9370
+# [G2]2211 네트워크 복구
+# https://www.acmicpc.net/problem/2211
 
 import sys
 from bisect import bisect_left
