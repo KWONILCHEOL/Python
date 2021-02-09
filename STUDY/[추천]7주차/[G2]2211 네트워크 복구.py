@@ -2,31 +2,45 @@
 # https://www.acmicpc.net/problem/2211
 
 import sys
+import heapq
 input = sys.stdin.readline
 INF = int(1e9)
 
+def dijkstra(s):
+    d = [INF] * (n+1)
+    p = [None] * (n+1)
+    d[s] = 0
+
+    q = []
+    heapq.heappush(q, (0,s))
+
+    while q:
+        dist, now = heapq.heappop(q)
+        if d[now] < dist:
+            continue
+
+        for x in graph[now]:
+            cost = dist + x[1]
+            if cost < d[x[0]]:
+                d[x[0]] = cost
+                p[x[0]] = now
+                heapq.heappush(q, (cost, x[0]))
+
+    return p
+
 n, m = map(int,input().split())
-visit = [False] * (n+1)
-arr = []
+graph = [[] for _ in range(n+1)]
+
 for _ in range(m):
     a,b,c = map(int, input().split())
-    arr.append((a,b,c))
-arr.sort(key = lambda x : x[2], reverse=True)
+    graph[a].append((b,c))
+    graph[b].append((a,c))
 
-cnt = 0
-ans = []
-while arr:
-    a,b,c = arr.pop()
-    if visit[a] and visit[b]:
-        continue
+parent = dijkstra(1)
 
-    ans.append((a,b))
-    visit[a] = True
-    visit[b] = True
-
-print(len(ans))
-for item in ans:
-    print(*item)
+print(n-1)
+for i in range(2, n+1):
+    print(i, parent[i])
 
 # 4 5
 # 1 2 1
