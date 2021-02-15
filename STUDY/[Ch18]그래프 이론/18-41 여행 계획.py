@@ -1,45 +1,46 @@
 import sys
-from collections import deque
-from copy import deepcopy
 input = sys.stdin.readline
 
-def topology_sort():
-    result = deepcopy(time)
-    q = deque()
+def find_parent(p, x):
+    while p[x] != x:
+        p[x], x = p[p[x]], p[x]
+    return x
 
-    for i in range(1, n+1):
-        if indegree[i] == 0:
-            q.append(i)
+def union_parent(p, a, b):
+    a = find_parent(p, a)
+    b = find_parent(p, b)
+    if a < b:
+        p[b] = a
+    else:
+        p[a] = b
 
-    while q:
-        now = q.popleft()
-        for x in graph[now]:
-            result[x] = max(result[x], result[now] + time[x])
-            indegree[x] -= 1
-            if indegree[x] == 0:
-                q.append(x)
-        print(result)
-        print(time)
+def answer(p):
+    arr = list(map(int, input().split()))
+    temp = find_parent(parent, arr[0])
+    for x in arr:
+        if temp != find_parent(parent, x):
+            return "NO"
 
-    print(*result[1:], sep='\n', end='')
+    return "YES"
 
-n = int(input())
-graph = [[] for i in range(n+1)]
-time = [0] * (n+1)
+n, m = map(int,input().split())
+G = [[] for _ in range(n)]
+parent = [i for i in range(n)]
 
-indegree = [0] * (n+1)
-for i in range(1, n+1):
-    arr = list(map(int,input().split()))
-    time[i] = arr[0]
-    for x in arr[1:-1]:
-        indegree[i] += 1
-        graph[x].append(i)
+for i in range(n):
+    G[i] = (list(map(int, input().split())))
 
-topology_sort()
+for i in range(n):
+    for j in range(i+1, n):
+        if G[i][j] == 1:
+            union_parent(parent,i,j)
 
-# 5
-# 10 -1
-# 10 1 -1
-# 4 1 -1
-# 4 3 1 -1
-# 3 3 -1
+print(answer(parent), end='')
+
+# 5 4
+# 0 1 0 1 1
+# 1 0 1 1 0
+# 0 1 0 0 0
+# 1 1 0 0 0
+# 1 0 0 0 0
+# 2 3 4 3
