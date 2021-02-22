@@ -8,7 +8,7 @@ input = sys.stdin.readline
 dx = [0,1,0,-1]
 dy = [1,0,-1,0]
 princess = deque()
-ans = []
+ans = set()
 A = [[] for _ in range(5)]
 visit = [[False] * 5 for _ in range(5)]
 
@@ -20,7 +20,8 @@ def go(n, cnt):
         if cnt >= 4:
             temp = list(princess)
             temp.sort()
-            ans.append(temp)
+            temp = tuple(temp)
+            ans.add(temp)
         return
 
     possible = set()
@@ -55,9 +56,4 @@ for i in range(5):
             go(1,1)
             princess.popleft()
 
-ans.sort()
-cnt = 1 if len(ans) > 0 else 0
-for i in range(1, len(ans)):
-    if ans[i] != ans[i-1]:
-        cnt += 1
-print(cnt)
+print(len(ans))
