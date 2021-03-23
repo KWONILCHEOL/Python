@@ -12,7 +12,7 @@ money = int(input())
 dp = [('') for _ in range(money+1)]
 
 for i in range(money+1):
-    for j  in range(price_len):
+    for j in range(price_len):
         if price[j] <= i:
             if len(dp[i]) > len(dp[i-price[j]] + str(j)):
                 continue
