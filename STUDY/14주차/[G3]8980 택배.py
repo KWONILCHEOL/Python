@@ -1,5 +1,5 @@
-# [G4]2136 개미
-# https://www.acmicpc.net/problem/2136
+# [G4]8980 택배
+# https://www.acmicpc.net/problem/8980
 
 import sys
 input = sys.stdin.readline

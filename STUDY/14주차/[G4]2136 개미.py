@@ -26,6 +26,7 @@ stick.sort(key=lambda x : x[0])
 
 # (minus-1) 또는 (minus)번째 개미가 마지막에 떨어짐
 # minus-1은 왼쪽, minus는 오른쪽으로 떨어짐
+
 if maxMove > 0:
     print(stick[minus][1], maxMove, end='')
 else:

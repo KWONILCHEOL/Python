@@ -3,6 +3,7 @@
 
 #집은 h에, 가게는 s에 정리한 후 백트레킹
 #itertools.permutation를 사용하면 시간초과
+#dfs는 combinations를 사용함
 
 import sys
 input = sys.stdin.readline
