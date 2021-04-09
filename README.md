@@ -1,1 +1,1 @@
-# Algorithm
+## Every Monday algorithm study
