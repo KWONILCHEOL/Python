@@ -65,13 +65,13 @@ for _ in range(t):
     A = [[0] * c for _ in range(r)]
     temp = set()
     length = len(que)
+    # 확산
     for _ in range(length):
         x,y,v = que.popleft()
         cnt = 0
         for i in range(4):
             if v < 5:
                 break
-            #확산
             nx = x + dx[i]
             ny = y + dy[i]
             if nx < 0 or ny < 0 or nx == r or ny == c:
@@ -85,7 +85,8 @@ for _ in range(t):
 
         A[x][y] += v - ((v // 5) * cnt)
         temp.add((x,y))
-
+    
+    #이동
     A2 = [[0] * c for _ in range(r)]
     for x,y in temp:
         nx, ny = move(x,y)

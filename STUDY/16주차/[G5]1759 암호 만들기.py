@@ -11,7 +11,7 @@ l, c = map(int, input().split())
 alpha = sorted(list(input().rstrip().split()))
 answer = []
 for x in combinations(alpha, l):
-    x = list(x)
+    x = ''.join(x)
     vowels_n = 0
     consonants_n = 0
     for c in x:
@@ -20,7 +20,7 @@ for x in combinations(alpha, l):
         else:
             consonants_n += 1
         if vowels_n >= 1 and consonants_n >= 2:
-            answer.append(''.join(x))
+            answer.append(x)
             break
 
 for x in answer:
