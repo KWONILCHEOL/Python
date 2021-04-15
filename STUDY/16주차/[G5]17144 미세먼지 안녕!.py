@@ -85,8 +85,8 @@ for _ in range(t):
 
         A[x][y] += v - ((v // 5) * cnt)
         temp.add((x,y))
-    
-    #이동
+
+    # 이동
     A2 = [[0] * c for _ in range(r)]
     for x,y in temp:
         nx, ny = move(x,y)
