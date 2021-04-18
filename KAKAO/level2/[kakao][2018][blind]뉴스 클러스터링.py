@@ -1,34 +1,35 @@
 # [kakao][2018][blind]뉴스 클러스터링
 # https://programmers.co.kr/learn/courses/30/lessons/17677
 
-def step(w):
-    if w == "":
-        return ""
+import re
+def solution(str1, str2):
+    str1 = [str1[i:i+2].lower() for i in range(len(str1)-1) if len(re.findall('[a-zA-Z]', str1[i:i+2])) == 2]
+    str2 = [str2[i:i+2].lower() for i in range(len(str2)-1) if len(re.findall('[a-zA-Z]', str2[i:i+2])) == 2]
 
     cnt = 0
-    u, v = "", ""
-    correct = True
-    for i in range(len(w)):
-        if w[i] == '(': cnt += 1
-        else: cnt -= 1
-
-        if cnt < 0: correct = False
-        if cnt == 0:
-            u = w[:i+1]
-            v = w[i+1:]
-            break
-
-    if correct:
-        return u + step(v)
-    else:
-        u = u[1:-1].replace('(','a').replace(')','(').replace('a',')')
-        temp = '(' + step(v) + ')' + u
-        return temp
-
-def solution(p):
-    answer = step(p)
+    total = 0
+    for s in str1:
+        total += 1
+        if s in str2:
+            str2.remove(s)
+            cnt += 1
+    total += len(str2)
+    if cnt == total: answer = 65536
+    else: answer = int(cnt / total * 65536)
     return answer
 
-print(solution("(()())()"))
-print(solution(")("))
-print(solution("()))((()"))
+str1 = "FRANCE"
+str2 = "french"
+print(solution(str1, str2)) #16384
+
+str1 = "handshake"
+str2 = "shake hands"
+print(solution(str1, str2)) #65536
+
+str1 = "aa1+aa2"
+str2 = "AAAA12"
+print(solution(str1, str2)) #43690
+
+str1 = "E=M*C^2"
+str2 = "e=m*c^2"
+print(solution(str1, str2)) #65536
