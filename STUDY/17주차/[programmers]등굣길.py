@@ -1,4 +1,4 @@
-# [kakao][2021][blind]등굣길
+# [programmers]등굣길
 # https://programmers.co.kr/learn/courses/30/lessons/42898
 
 def solution(m, n, puddles):
