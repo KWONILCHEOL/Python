@@ -1,4 +1,4 @@
-# [kakao][2018][blind]뉴스 클러스터링
+# [kakao][2018][blind]프렌즈4블록
 # https://programmers.co.kr/learn/courses/30/lessons/17679
 
 def solution(m, n, board):
